@@ -5,7 +5,7 @@
   * <p>
   * This sketch plays an entire song, so it may be a little slow to load.
   */
- 
+
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import java.util.Date;
@@ -14,7 +14,9 @@ Minim minim;
 AudioPlayer song;
 BeatDetect beat;
 float eRadius;
- 
+String[] colours = {"#ff0099", "#f3f315", "#83f52c", "#ff6600", "#6e0dd0"};
+int pushnumber = 0;
+
 void setup()
 {
   size(200, 200, P3D);
@@ -59,11 +61,11 @@ void pushNewColour()
   //Check we don't push a colour too often!
   Date currTime = new Date();
   
-  color randomColour = color(random(255), random(255), random(255));
-  
   JSONObject json=new JSONObject();
-  json.setString("bgColour", "#" + hex(randomColour, 6));
+  json.setString("bgColour", colours[pushnumber % 5]);
   json.setString("fgColour", "#fff");
   Pusher.triggerPush("rave-colours", "colour-change", json.toString());
+  
+  pushnumber++;
   
 }
