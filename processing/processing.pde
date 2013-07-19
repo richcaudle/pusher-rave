@@ -12,7 +12,9 @@ import java.util.Date;
  
 Minim minim;
 AudioPlayer song;
+AudioInput in;
 BeatDetect beat;
+
 float eRadius;
 String[] colours = {"#ff0099", "#f3f315", "#83f52c", "#ff6600", "#6e0dd0"};
 int pushnumber = 0;
@@ -20,13 +22,18 @@ int pushnumber = 0;
 void setup()
 {
   size(200, 200, P3D);
-  
   minim = new Minim(this);
+  
+  // ** MP3 ** //
   song = minim.loadFile("getlucky.mp3");
   song.play();
+  
+  // ** MIC ** //
+  //in = minim.getLineIn(Minim.STEREO, int(1024));
+  
   // a beat detection object song SOUND_ENERGY mode with a sensitivity of 10 milliseconds
   beat = new BeatDetect();
-  beat.setSensitivity(600);
+  beat.setSensitivity(1000);
  
   ellipseMode(RADIUS);
   eRadius = 20;
@@ -36,7 +43,13 @@ void setup()
 void draw()
 {
   background(0);
+  
+  // ** MP3 ** //
   beat.detect(song.mix);
+  
+  // ** MIC ** //
+  //beat.detect(in.mix);
+  
   float a = map(eRadius, 20, 80, 60, 255);
   fill(60, 255, 0, a);
   if ( beat.isOnset() )
