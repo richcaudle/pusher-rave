@@ -26,5 +26,8 @@ function initPusher()
 	chColours.bind('colour-change', function(data) {
 		changeColour(data.bgColour, data.fgColour);
 	});
+	
+	// Hide the address bar!
+	window.scrollTo(0, 1);
 
 }
