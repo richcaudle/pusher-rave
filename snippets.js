@@ -1,9 +1,7 @@
 // --- FOR DEBUG ONLY -- //
-Pusher.log = function (message) {
-    if (window.console && window.console.log) {
-        window.console.log(message);
-    }
-};
+Pusher.log = function(message) {
+	console.log(message);
+}
 
 // PUSHER - LOCAL SERVER //
 var pusher = new Pusher(PUSHER_CONFIG.APP_KEY, {

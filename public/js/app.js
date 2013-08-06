@@ -8,14 +8,14 @@ $(function () {
 
 function initPusher()
 {
+	// TODO: Write debug messages to console
+
 	// TODO: Connect to Pusher
 	
-
 	// TODO: Subscribe to colours channel
 	
-
 	// TODO: Bind to colour change event
-
+	
 }
 
 function changeColour(colour)
