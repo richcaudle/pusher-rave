@@ -25,7 +25,7 @@ void setup()
   minim = new Minim(this);
   
   // ** MP3 ** //
-  song = minim.loadFile("getlucky.mp3");
+  song = minim.loadFile("BarbaraStreisand.mp3");
   song.play();
   
   // ** MIC ** //
@@ -55,7 +55,10 @@ void draw()
   if ( beat.isOnset() )
   { 
     eRadius = 80;
+    
+    // Magic happens here
     pushNewColour();
+    
   }
   ellipse(width/2, height/2, eRadius, eRadius);
   eRadius *= 0.95;
@@ -74,10 +77,13 @@ void pushNewColour()
   //Check we don't push a colour too often!
   Date currTime = new Date();
   
-  JSONObject json=new JSONObject();
-  json.setString("bgColour", colours[pushnumber % 5]);
-  json.setString("fgColour", "#fff");
-  Pusher.triggerPush("rave-colours", "colour-change", json.toString());
+  JSONObject col1 = new JSONObject();
+  col1.setString("colour", colours[pushnumber % 5]);
+  Pusher.triggerPush("rave-1", "colour-change", col1.toString());
+  
+  JSONObject col2 = new JSONObject();
+  col2.setString("colour", colours[(pushnumber + 1) % 5]);
+  Pusher.triggerPush("rave-2", "colour-change", col2.toString());
   
   pushnumber++;
   

@@ -1,4 +1,7 @@
 pusher:
-  app_id: 33010
-  app_key: 665e6015add559766dd5
-  app_secret: be430e0a2554c7b4eef7
+  # app_id: 33010
+  # app_key: 665e6015add559766dd5
+  # app_secret: be430e0a2554c7b4eef7
+  app_id: 7
+  app_key: 6da0d2f6b3d3672d2a15
+  app_secret: 18585de8123a29409c47

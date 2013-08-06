@@ -25,4 +25,5 @@ body{height:100%}
 	and (max-device-width : 480px) 
 {
     padding-top: 25%;
+	height: 60%;
 }

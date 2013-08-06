@@ -2,6 +2,7 @@ assc
 .sass-cache
 capybara-*.html
 .rspec
+**.mp3
 /.bundle
 /vendor/bundle
 /log/*

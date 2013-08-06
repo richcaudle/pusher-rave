@@ -26,24 +26,21 @@ import javax.crypto.spec.SecretKeySpec;
 public class Pusher {
 
 	/**
-	 *  Pusher Host name
+	 *  Remote Pusher Server
 	 */
-	private final static String pusherHost = "api.pusherapp.com";
-	
-	/**
-	 * Pusher Application Identifier
-	 */
+	/*private final static String pusherHost = "api.pusherapp.com";
 	private final static String pusherApplicationId = "33010";
-	
-	/**
-	 * Pusher Application Key
-	 */
 	private final static String pusherApplicationKey = "665e6015add559766dd5";
-	
-	/**
-	 * Pusher Secret
-	 */
-	private final static String pusherApplicationSecret = "be430e0a2554c7b4eef7";
+	private final static String pusherApplicationSecret = "be430e0a2554c7b4eef7";*/
+
+        /**
+         *  LOCAL Pusher Server
+         */
+        private final static String pusherHost = "localhost";
+        private final static String pusherPort = "8081";
+        private final static String pusherApplicationId = "7";
+        private final static String pusherApplicationKey = "6da0d2f6b3d3672d2a15";
+        private final static String pusherApplicationSecret = "18585de8123a29409c47";
 	
 	/**
 	 * Converts a byte array to a string representation
@@ -193,6 +190,8 @@ public class Pusher {
     	buffer.append("http://");
     	//Host
     	buffer.append(pusherHost);
+        buffer.append(":");
+        buffer.append(pusherPort);
     	//URI Path
     	buffer.append(uriPath);
     	//Query string

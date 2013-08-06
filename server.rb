@@ -4,6 +4,8 @@ require 'yaml'
 
 class Server < Sinatra::Base
 
+	set :port, 80
+	
 	# set Pusher configuration
 	set :public_folder, Proc.new { File.join(root, "public") }
 	config = YAML.load_file('./config.yml')
